@@ -32,4 +32,12 @@ trait Validations
 
         return true;
     }
+
+    /**
+     * @return bool
+     */
+    private function uploadWithError()
+    {
+        return (bool) $this->upload->getError();
+    }
 }

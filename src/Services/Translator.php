@@ -61,7 +61,6 @@ class Translator
     public function getMessage($value)
     {
         $keys = (array) $value;
-
         if (strpos($value, '.')) {
             $keys = explode('.', $value);
         }
@@ -71,6 +70,7 @@ class Translator
     private function searchKey(array $keys)
     {
         $result = $this->messages;
+
         foreach($keys as $item) {
             if (is_array($result) && isset($result[$item])) {
                 $result = $result[$item];
@@ -98,7 +98,7 @@ class Translator
     {
         $locate = mb_strtolower($locate);
         $locate = rtrim($locate,  '.php');
-        $this->messages = require_once ($this->path() . DIRECTORY_SEPARATOR . $locate . '.php');
+        $this->messages = require ($this->path() . DIRECTORY_SEPARATOR . $locate . '.php');
 
         return $this;
     }

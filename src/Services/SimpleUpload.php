@@ -119,6 +119,11 @@ class SimpleUpload
             throw new InvalidArgumentException($msg, 400);
         }
 
+        if ($this->uploadWithError()) {
+            $msg = $this->translator->getMessage('errors.upload.'.$this->upload->getError());
+            throw new RuntimeException($msg, 500);
+        }
+
         return true;
     }
 
