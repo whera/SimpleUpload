@@ -1,0 +1,33 @@
+{
+    "name": "wsw/simple-upload",
+    "description": "Simple upload system",
+    "type": "project, library, simple, upload, wsw",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ronaldo M. Rodrigues",
+            "email": "ronaldo@whera.com.br"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "WSW\\SimpleUpload\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WSW\\SimpleUpload\\": "tests/"
+        }
+    },
+    "require": {
+        "league/flysystem": "@stable",
+        "league/flysystem-aws-s3-v3": "@stable",
+        "league/flysystem-dropbox": "@stable"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "@stable",
+        "rdehnhardt/var-dumper": "@stable"
+
+    }
+}
