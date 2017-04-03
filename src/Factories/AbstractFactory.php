@@ -14,5 +14,5 @@ abstract class AbstractFactory
      * @param array $data
      * @return AbstractEntity
      */
-    public abstract static function createFromArray(array $data);
+    abstract public static function createFromArray(array $data);
 }

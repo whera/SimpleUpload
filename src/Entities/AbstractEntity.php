@@ -11,5 +11,5 @@ abstract class AbstractEntity
     /**
      * @return array
      */
-    public abstract function toArray();
+    abstract public function toArray();
 }

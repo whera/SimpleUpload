@@ -71,7 +71,7 @@ class Translator
     {
         $result = $this->messages;
 
-        foreach($keys as $item) {
+        foreach ($keys as $item) {
             if (is_array($result) && isset($result[$item])) {
                 $result = $result[$item];
             }
@@ -83,7 +83,7 @@ class Translator
     private function existsFile($file)
     {
         $locate = mb_strtolower($file);
-        $locate = rtrim($locate,  '.php');
+        $locate = rtrim($locate, '.php');
         $file   = $this->path() . DIRECTORY_SEPARATOR . $locate . '.php';
 
         return (bool) file_exists($file);
@@ -97,8 +97,8 @@ class Translator
     private function loadMessages($locate)
     {
         $locate = mb_strtolower($locate);
-        $locate = rtrim($locate,  '.php');
-        $this->messages = require ($this->path() . DIRECTORY_SEPARATOR . $locate . '.php');
+        $locate = rtrim($locate, '.php');
+        $this->messages = require($this->path() . DIRECTORY_SEPARATOR . $locate . '.php');
 
         return $this;
     }

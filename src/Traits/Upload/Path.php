@@ -2,7 +2,6 @@
 
 namespace WSW\SimpleUpload\Traits\Upload;
 
-
 use League\Flysystem\Adapter\Local;
 
 trait Path

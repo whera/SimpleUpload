@@ -17,7 +17,8 @@ abstract class Text
      * @return string
      * @throws RuntimeException
      */
-    public static function slug($string, $delimiter = '-', array $replace = []) {
+    public static function slug($string, $delimiter = '-', array $replace = [])
+    {
         if (!extension_loaded('iconv')) {
             throw new RuntimeException('iconv module not loaded');
         }
