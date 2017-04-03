@@ -26,8 +26,14 @@
         "league/flysystem-dropbox": "@stable"
     },
     "require-dev": {
-        "phpunit/phpunit": "@stable",
-        "rdehnhardt/var-dumper": "@stable"
-
+        "phpunit/phpunit": "~5.7",
+        "rdehnhardt/var-dumper": "@stable",
+        "fzaninotto/faker": "~1.4",
+        "squizlabs/php_codesniffer": "^2.3"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "check-style": "vendor/bin/phpcs  -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src/",
+        "fix-style":   "vendor/bin/phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src/"
     }
 }
