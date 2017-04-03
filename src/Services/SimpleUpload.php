@@ -116,7 +116,6 @@ class SimpleUpload
         return $this->file_system;
     }
 
-
     /**
      * @return bool
      */
@@ -150,6 +149,9 @@ class SimpleUpload
         return $fileName . '.' . mb_strtolower($this->upload->getFileExtension());
     }
 
+    /**
+     * @return self
+     */
     private function sendUpload()
     {
         if ($this->file_system->has($this->getNewNameFile())) {
