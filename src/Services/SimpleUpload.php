@@ -100,12 +100,26 @@ class SimpleUpload
         return $this;
     }
 
+    /**
+     * @return File
+     */
     public function send()
     {
-        return $this->sendUpload();
+        return new File($this->sendUpload());
+    }
+
+    /**
+     * @return Filesystem
+     */
+    public function getFileSystem()
+    {
+        return $this->file_system;
     }
 
 
+    /**
+     * @return bool
+     */
     private function isValid()
     {
         if (!$this->extensionIsValid($this->upload->getFileExtension(), $this->allowed_extensions)) {
@@ -130,7 +144,7 @@ class SimpleUpload
     /**
      * @return string
      */
-    private function newNameFile()
+    public function getNewNameFile()
     {
         $fileName = (is_null($this->newName)) ? Text::slug($this->upload->getFileName()) : $this->getName();
         return $fileName . '.' . mb_strtolower($this->upload->getFileExtension());
@@ -138,13 +152,15 @@ class SimpleUpload
 
     private function sendUpload()
     {
-        if ($this->file_system->has($this->newNameFile())) {
-            $this->file_system->delete($this->newNameFile());
+        if ($this->file_system->has($this->getNewNameFile())) {
+            $this->file_system->delete($this->getNewNameFile());
         }
 
         if ($this->isValid()) {
             $content = file_get_contents($this->upload->getTmpName());
-            return $this->file_system->write($this->newNameFile(), $content);
+            $this->file_system->write($this->getNewNameFile(), $content);
         }
+
+        return $this;
     }
 }
