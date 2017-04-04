@@ -3,9 +3,34 @@
 namespace WSW\SimpleUpload\Traits\Upload;
 
 use League\Flysystem\Adapter\Local;
+use League\Flysystem\AdapterInterface;
 
 trait Path
 {
+    /**
+     * @var AdapterInterface
+     */
+    private $adapter;
+
+    /**
+     * @return AdapterInterface
+     */
+    public function getAdapter()
+    {
+        return $this->adapter;
+    }
+
+    /**
+     * @param AdapterInterface $adapter
+     * @return self
+     */
+    public function setAdapter(AdapterInterface $adapter)
+    {
+        $this->adapter = $adapter;
+        return $this;
+    }
+
+
     /**
      * @param string $base
      * @param string $dir

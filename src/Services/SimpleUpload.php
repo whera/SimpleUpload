@@ -58,6 +58,9 @@ class SimpleUpload
         $this->translator  = $translator ?: Translator::locate();
         $this->file_system = new Filesystem($adapter);
         $this->upload      = UploadFactory::createFromArray($upload, $this->translator);
+
+        $this->setAdapter($this->file_system->getAdapter());
+        $this->setError($this->upload->getError());
     }
 
     /**
@@ -69,22 +72,6 @@ class SimpleUpload
     public static function create(array $upload, AdapterInterface $adapter, Translator $translator = null)
     {
         return new self($upload, $adapter, $translator);
-    }
-
-    /**
-     * @return AdapterInterface
-     */
-    public function getAdapter()
-    {
-        return $this->file_system->getAdapter();
-    }
-
-    /**
-     * @return int
-     */
-    public function getError()
-    {
-        return $this->upload->getError();
     }
 
     /**
