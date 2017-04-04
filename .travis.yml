@@ -19,6 +19,5 @@ before_script:
   - travis_retry composer update --prefer-stable --prefer-lowest --no-interaction --prefer-source
 
 script:
-  - vendor/bin/vendor/bin/phpcs  -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src/
+  - vendor/bin/phpcs  -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src/
   - travis_retry composer test
-  
