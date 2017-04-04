@@ -10,9 +10,5 @@ use WSW\SimpleUpload\Entities\AbstractEntity;
  */
 abstract class AbstractFactory
 {
-    /**
-     * @param array $data
-     * @return AbstractEntity
-     */
-    abstract public static function createFromArray(array $data);
+
 }
