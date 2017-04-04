@@ -13,13 +13,6 @@ use WSW\SimpleUpload\Entities\File;
  */
 class FileFactoryTest extends TestCase
 {
-    public function testFactoryMethodsExists()
-    {
-        $object = new FileFactory();
-        $this->assertTrue(method_exists($object, 'createFromArray'));
-        $this->assertTrue(method_exists($object, 'createFromObject'));
-    }
-
     public function testReturnInstanceFactoryClass()
     {
         $this->assertInstanceOf(File::class, FileFactory::createFromArray($this->getArrayFile()));
