@@ -22,29 +22,13 @@ abstract class UploadFactory extends AbstractFactory
     public static function createFromArray(array $data, Translator $translator = null)
     {
         $translator  = $translator ?: Translator::locate();
+        $arr = ['name' => null, 'type' => null, 'tmp_name' => null, 'error' => null, 'size' => null];
 
-        if (!array_key_exists('name', $data)) {
-            $msg = sprintf($translator->getMessage('validations.requiredField'), 'name');
-            throw new InvalidArgumentException($msg, 400);
-        }
+        $compare = array_diff_key($arr, $data);
 
-        if (!array_key_exists('type', $data)) {
-            $msg = sprintf($translator->getMessage('validations.requiredField'), 'type');
-            throw new InvalidArgumentException($msg, 400);
-        }
-
-        if (!array_key_exists('tmp_name', $data)) {
-            $msg = sprintf($translator->getMessage('validations.requiredField'), 'tmp_name');
-            throw new InvalidArgumentException($msg, 400);
-        }
-
-        if (!array_key_exists('error', $data)) {
-            $msg = sprintf($translator->getMessage('validations.requiredField'), 'error');
-            throw new InvalidArgumentException($msg, 400);
-        }
-
-        if (!array_key_exists('size', $data)) {
-            $msg = sprintf($translator->getMessage('validations.requiredField'), 'size');
+        if (!empty($compare)) {
+            $fields = array_keys($compare);
+            $msg = sprintf($translator->getMessage('validations.requiredField'), $fields[0]);
             throw new InvalidArgumentException($msg, 400);
         }
 
