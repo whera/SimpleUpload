@@ -11,7 +11,7 @@ use WSW\SimpleUpload\Services\Translator;
  * Class UploadFactory
  * @package WSW\SimpleUpload\Factories\Entities
  */
-class UploadFactory extends AbstractFactory
+abstract class UploadFactory extends AbstractFactory
 {
 
     /**

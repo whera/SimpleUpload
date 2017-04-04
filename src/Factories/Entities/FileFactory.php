@@ -11,7 +11,7 @@ use WSW\SimpleUpload\Services\SimpleUpload;
  * Class FileFactory
  * @package WSW\SimpleUpload\Factories\Entities
  */
-class FileFactory extends AbstractFactory
+abstract class FileFactory extends AbstractFactory
 {
     /**
      * @param array $data

@@ -11,12 +11,6 @@ use WSW\SimpleUpload\Entities\Upload;
  */
 class UploadFactoryTest extends TestCase
 {
-    public function testFactoryMethodsExists()
-    {
-        $object = new UploadFactory();
-        $this->assertTrue(method_exists($object, 'createFromArray'));
-    }
-
     public function testReturnInstanceFactoryClass()
     {
         $this->assertInstanceOf(Upload::class, UploadFactory::createFromArray($this->getFileExample()));
