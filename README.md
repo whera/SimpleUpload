@@ -105,7 +105,7 @@ $ composer test
 
 ## Security
 
-If you discover any security related issues, please email [ronaldo@whera.com.br](mailto:ronaldo@whera.com.br?subject=Security SimpleUpload) instead of using the issue tracker.
+If you discover any security related issues, please email **ronaldo@whera.com.br** instead of using the issue tracker.
 
 ## Credits
 
