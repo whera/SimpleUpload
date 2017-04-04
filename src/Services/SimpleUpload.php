@@ -18,7 +18,7 @@ use WSW\SimpleUpload\Traits\Upload\Validations;
  * Class SimpleUpload
  * @package WSW\SimpleUpload\Services
  */
-class SimpleUpload
+class SimpleUpload extends AbstractUpload
 {
     use Validations;
     use Path;
