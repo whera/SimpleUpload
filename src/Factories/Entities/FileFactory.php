@@ -2,10 +2,12 @@
 
 namespace WSW\SimpleUpload\Factories\Entities;
 
+use InvalidArgumentException;
 use WSW\SimpleUpload\Entities\AbstractEntity;
 use WSW\SimpleUpload\Entities\File;
 use WSW\SimpleUpload\Factories\AbstractFactory;
 use WSW\SimpleUpload\Services\SimpleUpload;
+use WSW\SimpleUpload\Services\Translator;
 
 /**
  * Class FileFactory
@@ -15,27 +17,26 @@ abstract class FileFactory extends AbstractFactory
 {
     /**
      * @param array $data
-     * @return File
+     * @param Translator|null $translator
+     * @return \WSW\SimpleUpload\Entities\File
      */
-    public static function createFromArray(array $data)
+    public static function createFromArray(array $data, Translator $translator = null)
     {
+        $translator = $translator ?: Translator::locate();
+        $arr = ['path' => null, 'timestamp' => null, 'size' => null, 'mimetype' => null];
+        $compare = array_diff_key($arr, $data);
+
+        if (!empty($compare)) {
+            $fields = array_keys($compare);
+            $msg = sprintf($translator->getMessage('validations.requiredField'), $fields[0]);
+            throw new InvalidArgumentException($msg, 400);
+        }
+
         $entity = new File();
-
-        if (isset($data['path'])) {
-            $entity->setPath($data['path']);
-        }
-
-        if (isset($data['timestamp'])) {
-            $entity->setTimestamp($data['timestamp']);
-        }
-
-        if (isset($data['size'])) {
-            $entity->setSize($data['size']);
-        }
-
-        if (isset($data['mimetype'])) {
-            $entity->setMimetype($data['mimetype']);
-        }
+        $entity->setPath($data['path']);
+        $entity->setTimestamp($data['timestamp']);
+        $entity->setSize($data['size']);
+        $entity->setMimetype($data['mimetype']);
 
         return $entity;
     }
@@ -47,7 +48,7 @@ abstract class FileFactory extends AbstractFactory
     public static function createFromObject(SimpleUpload $SimpleUpload)
     {
         $arr = [
-            'path'      => self::getRealPath(
+            'path' => self::getRealPath(
                 $SimpleUpload->getFileSystem()->getAdapter()->getPathPrefix(),
                 $SimpleUpload->getNewNameFile()
             ),
@@ -56,7 +57,7 @@ abstract class FileFactory extends AbstractFactory
             'mimetype'  => $SimpleUpload->getFileSystem()->getMimetype($SimpleUpload->getNewNameFile())
         ];
 
-        return self::createFromArray($arr);
+        return self::createFromArray($arr, $SimpleUpload->getTranslator());
     }
 
     /**

@@ -31,4 +31,12 @@ class FileFactoryTest extends TestCase
         $path = FileFactory::getRealPath(null, 'xpto.txt');
         $this->assertEquals(DIRECTORY_SEPARATOR . 'xpto.txt', $path);
     }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testException()
+    {
+        $path = FileFactory::createFromArray([]);
+    }
 }

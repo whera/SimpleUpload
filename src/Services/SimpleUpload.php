@@ -122,6 +122,14 @@ class SimpleUpload extends AbstractUpload
     }
 
     /**
+     * @return Translator
+     */
+    public function getTranslator()
+    {
+        return $this->translator;
+    }
+
+    /**
      * @return bool
      */
     private function isValid()
