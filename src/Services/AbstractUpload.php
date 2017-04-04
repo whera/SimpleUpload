@@ -13,5 +13,5 @@ abstract class AbstractUpload
     /**
      * @return AdapterInterface
      */
-    public abstract function getAdapter();
+    abstract public function getAdapter();
 }
