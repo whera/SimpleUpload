@@ -6,7 +6,6 @@ use League\Flysystem\Adapter\Local;
 
 trait Path
 {
-
     /**
      * @param string $base
      * @param string $dir
@@ -27,12 +26,12 @@ trait Path
      */
     public function setPath($path)
     {
-        if ($this->file_system->getAdapter() instanceof Local) {
-            $base = $this->file_system->getAdapter()->getPathPrefix();
+        if ($this->getAdapter() instanceof Local) {
+            $base = $this->getAdapter()->getPathPrefix();
             $path =  $this->setPathLocal($base, $path);
         }
 
-        $this->file_system->getAdapter()->setPathPrefix($path);
+        $this->getAdapter()->setPathPrefix($path);
         return $this;
     }
 
@@ -41,6 +40,6 @@ trait Path
      */
     public function getPath()
     {
-        return $this->file_system->getAdapter()->getPathPrefix();
+        return $this->getAdapter()->getPathPrefix();
     }
 }

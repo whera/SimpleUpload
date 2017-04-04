@@ -72,6 +72,14 @@ class SimpleUpload
     }
 
     /**
+     * @return AdapterInterface
+     */
+    public function getAdapter()
+    {
+        return $this->file_system->getAdapter();
+    }
+
+    /**
      * @param $name
      * @return self
      */
