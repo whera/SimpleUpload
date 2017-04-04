@@ -38,10 +38,4 @@ class FileFactoryTest extends TestCase
         $path = FileFactory::getRealPath(null, 'xpto.txt');
         $this->assertEquals(DIRECTORY_SEPARATOR . 'xpto.txt', $path);
     }
-
-
-    private function path()
-    {
-        return dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'Files' . DIRECTORY_SEPARATOR;
-    }
 }

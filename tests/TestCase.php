@@ -40,6 +40,13 @@ class TestCase extends PHPUnit_Framework_TestCase
         ];
     }
 
+    public function getUploadError()
+    {
+        $arr = $this->getFileExample();
+        $arr['error'] = 2;
+        return $arr;
+    }
+
     public function getArrayFile()
     {
         return [
@@ -48,5 +55,10 @@ class TestCase extends PHPUnit_Framework_TestCase
             'size'      => $this->getFileExample()['size'],
             'mimetype'  => $this->getFileExample()['type'],
         ];
+    }
+
+    protected function path()
+    {
+        return __DIR__ . DIRECTORY_SEPARATOR . 'Files' . DIRECTORY_SEPARATOR;
     }
 }

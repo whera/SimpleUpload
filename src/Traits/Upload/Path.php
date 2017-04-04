@@ -12,7 +12,7 @@ trait Path
      * @param string $dir
      * @return string
      */
-    private function setPathLocal($base, $dir)
+    public function setPathLocal($base, $dir)
     {
         if (DIRECTORY_SEPARATOR === $dir{0}) {
             return $dir;

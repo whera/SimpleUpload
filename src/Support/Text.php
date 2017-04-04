@@ -15,14 +15,9 @@ abstract class Text
      * @param string $delimiter
      * @param array $replace
      * @return string
-     * @throws RuntimeException
      */
     public static function slug($string, $delimiter = '-', array $replace = [])
     {
-        if (!extension_loaded('iconv')) {
-            throw new RuntimeException('iconv module not loaded');
-        }
-
         $oldLocale = setlocale(LC_ALL, '0');
         setlocale(LC_ALL, 'en_US.UTF-8');
         $clean = iconv('UTF-8', 'ASCII//TRANSLIT', $string);

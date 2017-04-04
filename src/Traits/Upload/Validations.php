@@ -24,15 +24,6 @@ trait Validations
         return (bool) in_array($ext, $list);
     }
 
-    private function pathIsWritable()
-    {
-        if ($this->file_system->getAdapter() instanceof Local) {
-            return (bool) is_writable($this->file_system->getAdapter()->getPathPrefix());
-        }
-
-        return true;
-    }
-
     /**
      * @return bool
      */
