@@ -6,7 +6,9 @@ use InvalidArgumentException;
 use League\Flysystem\AdapterInterface;
 use League\Flysystem\Filesystem;
 use RuntimeException;
+use WSW\SimpleUpload\Entities\File;
 use WSW\SimpleUpload\Entities\Upload;
+use WSW\SimpleUpload\Factories\Entities\FileFactory;
 use WSW\SimpleUpload\Factories\Entities\UploadFactory;
 use WSW\SimpleUpload\Support\Text;
 use WSW\SimpleUpload\Traits\Upload\Path;
@@ -105,7 +107,7 @@ class SimpleUpload
      */
     public function send()
     {
-        return new File($this->sendUpload());
+        return FileFactory::createFromObject($this->sendUpload());
     }
 
     /**

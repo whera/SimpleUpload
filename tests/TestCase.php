@@ -39,4 +39,14 @@ class TestCase extends PHPUnit_Framework_TestCase
             'size' => 94762
         ];
     }
+
+    public function getArrayFile()
+    {
+        return [
+            'path'      => $this->getFileExample()['tmp_name'],
+            'timestamp' => (new \DateTime())->getTimestamp(),
+            'size'      => $this->getFileExample()['size'],
+            'mimetype'  => $this->getFileExample()['type'],
+        ];
+    }
 }
