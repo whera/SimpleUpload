@@ -64,7 +64,7 @@ class FileFactory extends AbstractFactory
      * @param string $file
      * @return string
      */
-    public static function getRealPath($path = null, $file)
+    public static function getRealPath($path = null, $file = null)
     {
         if (null === $path) {
             $path = DIRECTORY_SEPARATOR;
