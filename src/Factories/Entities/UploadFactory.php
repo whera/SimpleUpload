@@ -21,7 +21,7 @@ abstract class UploadFactory extends AbstractFactory
      */
     public static function createFromArray(array $data, Translator $translator = null)
     {
-        $translator  = $translator ?: Translator::locate();
+        $translator = $translator ?: Translator::locate();
         $arr = ['name' => null, 'type' => null, 'tmp_name' => null, 'error' => null, 'size' => null];
 
         $compare = array_diff_key($arr, $data);

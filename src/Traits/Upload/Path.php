@@ -53,7 +53,7 @@ trait Path
     {
         if ($this->getAdapter() instanceof Local) {
             $base = $this->getAdapter()->getPathPrefix();
-            $path =  $this->setPathLocal($base, $path);
+            $path = $this->setPathLocal($base, $path);
         }
 
         $this->getAdapter()->setPathPrefix($path);

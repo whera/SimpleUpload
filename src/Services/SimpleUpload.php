@@ -98,7 +98,7 @@ class SimpleUpload extends AbstractUpload
      */
     public function setAllowedExtensions(array $ext)
     {
-        $this->allowed_extensions = array_map(function ($value) {
+        $this->allowed_extensions = array_map(function($value) {
             return mb_strtolower($value);
         }, $ext);
 
@@ -138,7 +138,7 @@ class SimpleUpload extends AbstractUpload
         }
 
         if ($this->uploadWithError()) {
-            $msg = $this->translator->getMessage('errors.upload.'.$this->upload->getError());
+            $msg = $this->translator->getMessage('errors.upload.' . $this->upload->getError());
             throw new RuntimeException($msg, 500);
         }
 
