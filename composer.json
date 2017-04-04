@@ -1,9 +1,22 @@
 {
     "name": "wsw/simple-upload",
     "description": "Simple upload system",
-    "type": "project, library, simple, upload, wsw",
+    "type": "library",
     "minimum-stability": "stable",
     "license": "MIT",
+    "keywords": [
+        "Update",
+        "Simple",
+        "Integration",
+        "AWS",
+        "AWS-S3",
+        "Azure",
+        "Dropbox",
+        "Ftp",
+        "Filesystem",
+        "Wsw",
+        "Whera"
+    ],
     "authors": [
         {
             "name": "Ronaldo M. Rodrigues",
