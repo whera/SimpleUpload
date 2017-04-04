@@ -98,7 +98,7 @@ class SimpleUpload extends AbstractUpload
      */
     public function setAllowedExtensions(array $ext)
     {
-        $this->allowed_extensions = array_map(function($value) {
+        $this->allowed_extensions = array_map(function ($value) {
             return mb_strtolower($value);
         }, $ext);
 
