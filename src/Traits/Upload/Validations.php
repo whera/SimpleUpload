@@ -29,6 +29,6 @@ trait Validations
      */
     private function uploadWithError()
     {
-        return (bool) $this->upload->getError();
+        return (bool) $this->getError();
     }
 }

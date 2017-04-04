@@ -80,6 +80,14 @@ class SimpleUpload
     }
 
     /**
+     * @return int
+     */
+    public function getError()
+    {
+        return $this->upload->getError();
+    }
+
+    /**
      * @param $name
      * @return self
      */
