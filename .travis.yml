@@ -20,7 +20,7 @@ before_script:
 
 script:
   - vendor/bin/phpcs  -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src/
-  - vendor/bin/phpunit --coverage-clover=coverage.clover
+  - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover
 
 after_script:
-  - if [ "$ENVIRONMENT" == 'coverage' ]; then wget https://scrutinizer-ci.com/ocular.phar && sleep 5 && php ocular.phar code-coverage:upload --access-token="c6e4dbdef19408fe30f9e3986d70ef1e2deb0a44b0860f4d5135e37d989c13df" --format=php-clover coverage.clover;  fi
+  - if [ "$ENVIRONMENT" == 'coverage' ]; then wget https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --access-token="c6e4dbdef19408fe30f9e3986d70ef1e2deb0a44b0860f4d5135e37d989c13df" --format=php-clover coverage.clover; fi
