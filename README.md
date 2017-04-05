@@ -2,6 +2,7 @@
 Simple upload system in PHP, compatible with AWS S3, Dropbox, Azure and others.
 
 [![Travis](https://img.shields.io/travis/whera/SimpleUpload.svg?style=flat-square)](https://travis-ci.org/whera/SimpleUpload)
+[![Code Coverage](https://scrutinizer-ci.com/g/whera/SimpleUpload/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/whera/SimpleUpload/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/whera/SimpleUpload/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/whera/SimpleUpload/?branch=master)
 [![Github All Releases](https://img.shields.io/github/downloads/whera/SimpleUpload/total.svg?style=flat-square)](https://packagist.org/packages/wsw/simple-upload/stats)
 [![Packagist](https://img.shields.io/packagist/v/wsw/simple-upload.svg?style=flat-square)](https://github.com/whera/SimpleUpload)
