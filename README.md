@@ -15,7 +15,7 @@ With it it is possible to perform local uploads and services such as: Dropbox, A
 
 Via Composer:
 
-```
+```bash
 composer require wsw/simple-upload
 ```
 
@@ -72,30 +72,29 @@ try {
 
 ``` php
 <?php
-    // Returns the size of the file in KB
-    echo $file->getSize(); // 94762
-    
-    // Returns the file type
-    echo $file->getMimetype(); // text/plain
-    
-    // Returns instance of DateTime for date and time of creation
-    echo $file->getTimestamp(); // \DateTime
-    
-    // Absolute file path
-    echo $file->getPath(); // /home/files/file.txt
-    
-    // Directory where the file is located
-    echo $file->getFilePath(); // /home/files/
-    
-    // Filename with extension
-    echo $file->getFileName(); // file.txt
-    
-    // Filename without extension
-    echo $file->getName(); // file
-    
-    // File extension
-    echo $file->getExtension(); // txt
-    
+// Returns the size of the file in KB
+echo $file->getSize(); // 94762
+
+// Returns the file type
+echo $file->getMimetype(); // text/plain
+
+// Returns instance of DateTime for date and time of creation
+echo $file->getTimestamp(); // \DateTime
+
+// Absolute file path
+echo $file->getPath(); // /home/files/file.txt
+
+// Directory where the file is located
+echo $file->getFilePath(); // /home/files/
+
+// Filename with extension
+echo $file->getFileName(); // file.txt
+
+// Filename without extension
+echo $file->getName(); // file
+
+// File extension
+echo $file->getExtension(); // txt
 ```
 
 ## Testing
