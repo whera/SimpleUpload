@@ -34,13 +34,11 @@
         }
     },
     "require": {
-        "league/flysystem": "@stable",
-        "league/flysystem-aws-s3-v3": "@stable",
-        "league/flysystem-dropbox": "@stable"
+        "league/flysystem": "^1.0"
     },
     "require-dev": {
+        "rdehnhardt/var-dumper": "^1.1",
         "phpunit/phpunit": "~5.7",
-        "rdehnhardt/var-dumper": "@stable",
         "fzaninotto/faker": "~1.4",
         "squizlabs/php_codesniffer": "^2.3"
     },
